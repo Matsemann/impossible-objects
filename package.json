@@ -2,9 +2,9 @@
   "name": "impossibleobjects",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "watch": "webpack --config webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
@@ -12,8 +12,9 @@
   },
   "author": "",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Matsemann/impossible-objects/issues"
-  },
-  "homepage": "https://github.com/Matsemann/impossible-objects#readme"
+  "homepage": "https://github.com/Matsemann/impossible-objects#readme",
+  "devDependencies": {
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
+  }
 }

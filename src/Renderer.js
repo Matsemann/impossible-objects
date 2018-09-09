@@ -27,15 +27,15 @@ export default class Renderer {
         this.renderer.setPixelRatio(pixelRatio);
         this.renderer.setSize(width, height);
 
-        this.camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
-        this.camera.position.z = 40;
-        this.camera.position.y = 40;
+        this.camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
+        this.camera.position.z = 50;
+        this.camera.position.y = 60;
         this.controls = new OrbitControls(this.camera);
         this.controls.target.set(0, 10, 0);
         this.controls.update();
 
         this.setupLights();
-        this.addCube();
+        // this.addCube();
         this.addMirror(width, height, pixelRatio);
         this.addSkybox();
     }
@@ -106,7 +106,7 @@ export default class Renderer {
         planeBottom.receiveShadow = true;
         this.scene.add(planeBottom);
 
-        var planeFront = new THREE.Mesh(planeGeo, new THREE.MeshPhongMaterial({color: 0x2020ff}));
+        var planeFront = new THREE.Mesh(planeGeo, new THREE.MeshPhongMaterial({color: 0x444466}));
         planeFront.position.z = 50;
         planeFront.position.y = 50;
         planeFront.rotateY(Math.PI);
@@ -131,8 +131,25 @@ export default class Renderer {
     }
 
     render() {
+        // this.line.rotation.y += 0.01;
         this.controls.update();
         this.renderer.render(this.scene, this.camera);
+    }
+
+    renderPoints(points) {
+
+        var material = new THREE.LineBasicMaterial( {
+            color: 0x0000ff,
+            linewidth: 20
+        } );
+        var geometry = new THREE.Geometry();
+
+        points.forEach(point => {
+            geometry.vertices.push(new THREE.Vector3(point.x * 10, point.y * 10 + 30, point.z * 10))
+        });
+        this.line = new THREE.Line( geometry, material );
+
+        this.scene.add(this.line);
     }
 
     resize(width, height, pixelRatio) {

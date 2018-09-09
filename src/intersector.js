@@ -1,6 +1,6 @@
 
 
-function findLineIntersection(v1, v2, v3, v4) {
+export function findLineIntersection(v1, v2, v3, v4) {
 
     const result = {
         x: null,
@@ -14,7 +14,7 @@ function findLineIntersection(v1, v2, v3, v4) {
         return false; // parallel
     }
 
-    const numerator1 = ((v4.x - v3.x) * v1.y - v3.y) - ((v4.y - v3.y) * v1.x - v3.x);
+    const numerator1 = ((v4.x - v3.x) * (v1.y - v3.y)) - ((v4.y - v3.y) * (v1.x - v3.x));
     // const numerator2 = ((v2.x - v1.x) * v1.y - v3.y) - ((v2.y - v1.y) * v1.x - v3.x);
 
     const a = numerator1 / denominator;
@@ -35,7 +35,3 @@ function findLineIntersection(v1, v2, v3, v4) {
     // if line1 and line2 are segments, they intersect if both of the above are true
     return result;
 }
-
-module.exports = {
-    findLineIntersection
-};

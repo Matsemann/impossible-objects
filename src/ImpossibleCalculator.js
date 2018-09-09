@@ -14,7 +14,7 @@ export function line(x) {
 }
 
 export function wave(x) {
-    return Math.sin(4 * x);
+    return Math.sin(2 * x);
 }
 
 

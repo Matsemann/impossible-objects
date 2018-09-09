@@ -29,10 +29,14 @@ export default class Renderer {
 
         this.camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
         this.camera.position.z = 50;
-        this.camera.position.y = 60;
+        this.camera.position.y = 80;
         this.controls = new OrbitControls(this.camera);
-        this.controls.target.set(0, 10, 0);
+        this.controls.target.set(0, 30, 0);
         this.controls.update();
+
+        const viewAngle = this.controls.getPolarAngle();
+        this.controls.minPolarAngle = viewAngle;
+        this.controls.maxPolarAngle = viewAngle;
 
         this.setupLights();
         // this.addCube();

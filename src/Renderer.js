@@ -28,8 +28,8 @@ export default class Renderer {
         this.renderer.setSize(width, height);
 
         this.camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
-        this.camera.position.z = 50;
-        this.camera.position.y = 80;
+        this.camera.position.z = 60;
+        this.camera.position.y = 100;
         this.controls = new OrbitControls(this.camera);
         this.controls.target.set(0, 30, 0);
         this.controls.update();
@@ -67,8 +67,8 @@ export default class Renderer {
             color: 0x889999,
             recursion: 1
         });
-        mirror.position.z = -30;
-        mirror.position.y = 25;
+        mirror.position.z = -20;
+        mirror.position.y = 75;
         mirror.rotateX(Math.PI / 12);
         this.scene.add(mirror);
     }
@@ -149,7 +149,7 @@ export default class Renderer {
         var geometry = new THREE.Geometry();
 
         points.forEach(point => {
-            geometry.vertices.push(new THREE.Vector3(point.x * 10, point.y * 10 + 30, point.z * 10))
+            geometry.vertices.push(new THREE.Vector3(point.x * 10, point.y * 10 + 50, point.z * 10))
         });
         this.line = new THREE.Line( geometry, material );
 

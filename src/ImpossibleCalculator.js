@@ -21,6 +21,43 @@ export function halfCircle(x) {
     return Math.sqrt(1 - (x * x));
 }
 
+export function halfStar(x) {
+    if (x < 0 ) {
+        x = -x;
+    }
+    if (x < .42) {
+        return 0.6666666 * x + 0.5;
+    } else if (x < 0.625) {
+        return -2 * x + 1.5;
+    } else {
+        return -0.666666 * x + 0.666666;
+    }
+}
+export function halfStar2(x) {
+    if (x < 0 ) {
+        x = -x;
+    }
+    if (x < .375) {
+        return 0.6666666 * x + 0.5;
+    } else if (x < 0.625) {
+        return -2 * x + 1.5;
+    } else {
+        return -0.666666 * x + 0.666666;
+    }
+}
+
+export function halfStarOld(x) {
+    if (x >= 0 && x < 0.25) {
+        return x + 0.75;
+    } else if (x >= 0 && x < 0.5) {
+        return -3 * x + 1.75;
+    } else if (x >= 0) {
+        return -0.5 * x + 0.5;
+    } else {
+        return halfStarOld(-x);
+    }
+}
+
 export function inverse(fn) {
     return (x) => -fn(x);
 }

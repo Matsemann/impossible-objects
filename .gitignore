@@ -2,3 +2,4 @@
 *.iml
 dist/
 node_modules/
+papers/

@@ -3,9 +3,9 @@ import {findLineIntersection} from "./intersector";
 
 export function triangle(x) {
     if (x <= 0) {
-        return -x;
+        return x + 1;
     } else {
-        return x;
+        return -x + 1;
     }
 }
 
@@ -55,6 +55,17 @@ export function halfStarOld(x) {
         return -0.5 * x + 0.5;
     } else {
         return halfStarOld(-x);
+    }
+}
+
+export function M(x) {
+    if (x < 0) {
+        x = -x;
+    }
+    if (x < 0.5) {
+        return x;
+    } else {
+        return -x + 1;
     }
 }
 

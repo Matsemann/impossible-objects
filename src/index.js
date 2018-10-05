@@ -1,18 +1,21 @@
 import Renderer from "./Renderer";
-import {findPoints, halfCircle, halfStar, inverse, line, M, shift, triangle, wave} from "./ImpossibleCalculator";
+import {
+    arrow, findPoints, flip, halfCircle, halfStar, heartTop, inverse, line, M, shift, triangle,
+    wave
+} from "./ImpossibleCalculator";
 import OBJExporter from "three-obj-exporter";
 
 const myRenderer = new Renderer(window.innerWidth, window.innerHeight, window.devicePixelRatio);
 document.body.appendChild( myRenderer.renderer.domElement );
 
-const intersections = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, triangle, halfCircle, 200);
-const intersections2 = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, inverse(triangle), inverse(halfCircle), 200);
+const intersections = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, arrow, flip(arrow), 200);
+const intersections2 = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, inverse(arrow), inverse(flip(arrow)), 200);
 
 // const intersections = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, inverse(halfCircle), shift(halfStar,0), 100);
 // const intersections2 = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, shift(halfCircle, 0), inverse(halfStar), 100);
 // myRenderer.renderPoints(debugFunction((x) => Math.sqrt(1 - (x*x)/2) - .75, 100));
 // myRenderer.renderPoints(debugFunction((x) => Math.sqrt(1 - x*x) / 3, 100));
-// myRenderer.renderPoints(debugFunction(shift(line, -0.5), 100));
+// myRenderer.renderPoints(debugFunction(heartTop, 100));
 // myRenderer.renderPoints(debugFunction(halfCircle, 100));
 // myRenderer.renderPoints(debugFunction(triangle, 100));
 

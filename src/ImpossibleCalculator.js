@@ -69,12 +69,37 @@ export function M(x) {
     }
 }
 
+export function arrow(x) {
+    if (x < -0.75) {
+        return x +1;
+    } else if (x < 0.125) {
+        return 0.25;
+    } else if (x < 0.25) {
+        return 2 * x;
+    } else {
+        return (2/3) - (2/3) * x;
+    }
+}
+
+export function heartTop(x) {
+    if (x < 0) {
+        x += 1;
+    }
+    x -= 0.5;
+    x *= 2;
+    return Math.sqrt(1 - (x*x)) * 0.5;
+}
+
 export function inverse(fn) {
     return (x) => -fn(x);
 }
 
 export function shift(fn, s) {
     return (x) => fn(x) + s;
+}
+
+export function flip(fn) {
+    return (x) => fn(-x);
 }
 
 

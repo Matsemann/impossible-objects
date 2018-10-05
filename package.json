@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "three": "^0.96.0",
+    "three-obj-exporter": "0.0.1",
     "three-orbit-controls": "^82.1.0",
     "three-reflector": "^1.0.2"
   }

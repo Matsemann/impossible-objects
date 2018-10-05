@@ -21,6 +21,7 @@ export default class Renderer {
 
     constructor(width, height, pixelRatio) {
         this.lights = [];
+        this.renderedLines = [];
 
         this.scene = new Scene();
         this.renderer = new WebGLRenderer({antialias: true});
@@ -151,9 +152,11 @@ export default class Renderer {
         points.forEach(point => {
             geometry.vertices.push(new THREE.Vector3(point.x * 10, point.y * 10 + 50, point.z * 10))
         });
-        this.line = new THREE.Line( geometry, material );
+        const line = new THREE.Line( geometry, material );
 
-        this.scene.add(this.line);
+        this.scene.add(line);
+
+        this.renderedLines.push(line);
     }
 
     resize(width, height, pixelRatio) {

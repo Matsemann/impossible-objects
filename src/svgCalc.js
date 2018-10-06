@@ -21,7 +21,7 @@ export function svgFunc(svgPathString) {
 
     path.setAttributeNS(null, "fill", "#FFFFFF");
     path.setAttributeNS(null, "stroke", "#FF0000");
-    path.setAttributeNS(null, "d", "M0,0l50,50c0,0,0-33.6,50-50");
+    path.setAttributeNS(null, "d", svgPathString);
     svgElem.appendChild(path);
 
 
@@ -49,3 +49,6 @@ export function svgFunc(svgPathString) {
 
     };
 }
+
+export const svgTriangle = "M0,0c0,0,49.6,49.6,50,50s50-50,50-50";
+export const svgHalfCircle = "M0,0c1.9,67.3,98.9,65.9,100,0";

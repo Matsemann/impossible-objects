@@ -4,19 +4,21 @@ import {
     wave
 } from "./ImpossibleCalculator";
 import OBJExporter from "three-obj-exporter";
-import {svgFunc} from "./svgCalc";
+import {svgFunc, svgHalfCircle, svgTriangle} from "./svgCalc";
 
 const myRenderer = new Renderer(window.innerWidth, window.innerHeight, window.devicePixelRatio);
 document.body.appendChild( myRenderer.renderer.domElement );
 
-// const intersections = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, svgFunc(""), triangle, 200);
-// const intersections2 = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, inverse(triangle), inverse(heartTop), 200);
+const intersections = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, svgFunc(svgTriangle), svgFunc(svgHalfCircle), 200);
+const intersections2 = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, inverse(svgFunc(svgTriangle)), inverse(svgFunc(svgHalfCircle)), 200);
+
 
 // const intersections = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, inverse(halfCircle), shift(halfStar,0), 100);
 // const intersections2 = findPoints({x: 0, y:50, z:50}, {x: 0, y: 50, z: -50}, shift(halfCircle, 0), inverse(halfStar), 100);
 // myRenderer.renderPoints(debugFunction((x) => Math.sqrt(1 - (x*x)/2) - .75, 100));
 // myRenderer.renderPoints(debugFunction((x) => Math.sqrt(1 - x*x) / 3, 100));
-myRenderer.renderPoints(debugFunction(svgFunc(""), 200));
+myRenderer.renderPoints(debugFunction(svgFunc(svgTriangle), 200));
+myRenderer.renderPoints(debugFunction(svgFunc(svgHalfCircle), 200));
 // myRenderer.renderPoints(debugFunction(inverse(triangle), 100));
 // myRenderer.renderPoints(debugFunction(triangle, 100));
 
@@ -59,7 +61,8 @@ function scalePoints(points, s) {
     }));
 }
 
-// myRenderer.renderPoints([...intersections, ...(intersections2.reverse())]);
+myRenderer.renderPoints([...intersections, ...(intersections2.reverse())]);
+// myRenderer.renderPoints(shiftPoints([...intersections3, ...(intersections4.reverse())], 0,.1, 0));
 // myRenderer.renderPoints(shiftPoints([...intersections3, ...(intersections4.reverse())], 0, .5, -1.5));
 
 
@@ -89,7 +92,6 @@ const animate = function () {
 animate();
 
 function debugFunction(fn, numPoints) {
-    var now = new Date();
     const points = [];
 
     for (let i = 0; i <= numPoints; i++) {
@@ -100,6 +102,5 @@ function debugFunction(fn, numPoints) {
         points.push({x: xVal, y: fnX, z: 4});
     }
 
-    console.log("time used ", new Date() - now);
     return points;
 }

@@ -29,15 +29,15 @@ export default class Renderer {
         this.renderer.setSize(width, height);
 
         this.camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
-        this.camera.position.z = 60;
-        this.camera.position.y = 100;
+        this.camera.position.z = 100;
+        this.camera.position.y = 150;
         this.controls = new OrbitControls(this.camera);
-        this.controls.target.set(0, 30, 0);
+        this.controls.target.set(0, 50, 0);
         this.controls.update();
 
         const viewAngle = this.controls.getPolarAngle();
-        // this.controls.minPolarAngle = viewAngle;
-        // this.controls.maxPolarAngle = viewAngle;
+        this.controls.minPolarAngle = viewAngle;
+        this.controls.maxPolarAngle = viewAngle;
 
         this.setupLights();
         // this.addCube();
@@ -69,8 +69,8 @@ export default class Renderer {
             recursion: 1
         });
         mirror.position.z = -20;
-        mirror.position.y = 75;
-        mirror.rotateX(Math.PI / 12);
+        mirror.position.y = 65;
+        mirror.rotateX(Math.PI / 32);
         this.scene.add(mirror);
     }
 
@@ -95,11 +95,11 @@ export default class Renderer {
         this.lights[5].position.set(-5, 60, -20);
 
         this.lights.forEach(light => this.scene.add(light));
-        this.lights.forEach(light => this.scene.add(new PointLightHelper(light, 1)));
+        // this.lights.forEach(light => this.scene.add(new PointLightHelper(light, 1)));
     }
 
     addSkybox() {
-        const planeGeo = new THREE.PlaneBufferGeometry(100, 100);
+        const planeGeo = new THREE.PlaneBufferGeometry(100, 150);
 
         var planeTop = new THREE.Mesh(planeGeo, new THREE.MeshPhongMaterial({color: 0x444444}));
         planeTop.position.y = 100;
@@ -107,11 +107,12 @@ export default class Renderer {
         this.scene.add(planeTop);
 
         var planeBottom = new THREE.Mesh(planeGeo, new THREE.MeshPhongMaterial({color: 0x888888}));
+        planeBottom.position.y = -25;
         planeBottom.rotateX(-Math.PI / 2);
         planeBottom.receiveShadow = true;
         this.scene.add(planeBottom);
 
-        var planeFront = new THREE.Mesh(planeGeo, new THREE.MeshPhongMaterial({color: 0x444466}));
+        var planeFront = new THREE.Mesh(planeGeo, new THREE.MeshPhongMaterial({color: 0x7799aa}));
         planeFront.position.z = 50;
         planeFront.position.y = 50;
         planeFront.rotateY(Math.PI);

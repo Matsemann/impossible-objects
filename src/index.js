@@ -13,14 +13,17 @@ let circleSquare = [
     {func1: inverse(svgFuncBinary(svgHalfCircle)), func2: inverse(svgFuncBinary(svgTriangle))},
 ];
 
+
+const usingDef = circleSquare;
+
 let start = new Date();
-const intersections = calculateIntersections(circleSquare);
+const intersections = calculateIntersections(usingDef);
 console.log("intersections calculation ms", new Date() - start);
 
 intersections.forEach(points => myRenderer.renderPoints(points));
 exportToObj(myRenderer.renderedLines);
 
-debugFigureFunctions(circleSquare).forEach(points => myRenderer.renderPoints(points));
+debugFigureFunctions(usingDef).forEach(points => myRenderer.renderPoints(points));
 
 
 

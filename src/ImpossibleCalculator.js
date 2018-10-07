@@ -57,7 +57,7 @@ export function debugFunction(fn, numPoints, lower, upper) {
 
         const fnX = fn(xVal);
 
-        points.push({x: xVal, y: fnX, z: 4});
+        points.push({x: xVal + 3, y: 0, z: fnX});
     }
 
     console.log("debug points took", new Date() - start);

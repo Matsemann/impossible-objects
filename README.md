@@ -4,6 +4,10 @@ Based on the papers by [Kokichi Sugihara](http://www.isc.meiji.ac.jp/~kokichis/W
 the calculations to make various ambiguous cylinders. The end product is an exhibition for [Bekk](https://www.bekk.no/)
 at Teknisk Museum in Oslo, with various figures 3D-printed.
 
+
+[**View some of it here**](https://matsemann.github.io/impossible-objects/). Drag with mouse to look around.
+What you see is an object and the mirror reflection being something else. A circle from one direction, square from other.
+
 `src` is a folder containing the web-app. Run with `npm install` and `npm run watch` from root.
 The frontend does the calculations and allow easy visualization of the paths.
 

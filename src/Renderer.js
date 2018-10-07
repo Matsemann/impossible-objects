@@ -146,7 +146,7 @@ export default class Renderer {
 
         var material = new THREE.LineBasicMaterial( {
             color: 0x0000ff,
-            linewidth: 20
+            linewidth: 1
         } );
         var geometry = new THREE.Geometry();
 

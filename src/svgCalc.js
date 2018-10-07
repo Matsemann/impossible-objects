@@ -1,6 +1,7 @@
 const ns = "http://www.w3.org/2000/svg";
 
 const STEP_SIZE = 0.05;
+const X_DELTA = 0.01;
 
 /*
 Can read a SVG bezier curve and return y value for given x value
@@ -43,8 +44,44 @@ export function svgFunc(svgPathString, backwards) {
     };
 }
 
+
+export function svgFuncBinary(svgPathString, backwards) {
+    const svgElem = document.createElementNS(ns, "svg");
+    const path = document.createElementNS(ns, "path");
+
+    path.setAttributeNS(null, "fill", "#FFFFFF");
+    path.setAttributeNS(null, "stroke", "#FF0000");
+    path.setAttributeNS(null, "d", svgPathString);
+    svgElem.appendChild(path);
+
+
+    return (x) => {
+        // x from -1 to 1 => 0 to 100
+        const scaledX = (x + 1) * 50;
+
+        let lower = 0;
+        let upper = path.getTotalLength();
+
+        while (true) {
+            let lengthToCheck = (upper - lower) / 2 + lower;
+            let point = path.getPointAtLength(lengthToCheck);
+            if (Math.abs(point.x - scaledX) <= X_DELTA) {
+                return point.y / 50; // back to 0 to 1
+            } else if (point.x > scaledX) {
+                upper = lengthToCheck;
+            } else {
+                lower = lengthToCheck;
+            }
+        }
+    };
+}
+
 export const svgTriangle = "M0,0c0,0,49.6,49.6,50,50s50-50,50-50";
 export const svgHalfCircle = "M0,0c1.9,67.3,98.9,65.9,100,0";
 
 export const svgPointyArrow = "M0,0c3.4,3.9,12.4,12.6,12.4,12.6l43.1,0.1L62.7,25L100,0";
 export const svgSoftArrow = "M0,0c3.4,3.9,8.3,11,12.4,12.6c10,4,33.4-4.7,43.1,0.1c3.2,1.6,3.8,11.2,7.2,12.3C73.4,28.4,100,0,100,0";
+export const svgEvenSofterArrow = "M0,0c1.8,5.4,3.8,14,7.9,15.7c10,4,38-7.8,47.6-3c3.2,1.6,2.9,11.5,6.4,10.9C72.1,21.7,100,0,100,0";
+
+export const svgHeartTop = "M0,0c0,0,0.6,14.5,10.8,22c4.3,3,15.2,8.7,27,6.6C41.2,28,45,27,50,22.1c5,4.9,8.8,5.8,12.2,6.4C74,30.7,84.9,25,89.2,22C99.4,14.5,100,0,100,0";
+export const svgHeartBottom = "M0,0c0,0,0.6,12.6,12.4,27.1c12.4,15.3,37.6,37.6,37.6,37.6l41.8-41.8c0,0,5.9-6.8,8.2-22.9";

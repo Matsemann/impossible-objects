@@ -106,7 +106,7 @@ export default class Renderer {
         planeTop.rotateX(Math.PI / 2);
         this.scene.add(planeTop);
 
-        var planeBottom = new THREE.Mesh(planeGeo, new THREE.MeshPhongMaterial({color: 0x888888}));
+        var planeBottom = new THREE.Mesh(new THREE.PlaneBufferGeometry(100, 100), new THREE.MeshPhongMaterial({color: 0x888888}));
         planeBottom.position.y = -25;
         planeBottom.rotateX(-Math.PI / 2);
         planeBottom.receiveShadow = true;

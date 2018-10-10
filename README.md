@@ -43,25 +43,32 @@ is also made, fetch it from console by typing `copy(window.objFile)` and paste i
 ## Edit file in Blender
 
 Import the obj file, select `Object -> Transform -> Geometry to Origin` to get it somewhere visible.
+Scale it `S` to 0.2 or so that it's approx 4units = 4cms wide. Apply the scale, `ctrl + a`. Height approx 5 units.
 
 If the object contains several paths, they may need to be connected or split.
 To split, go into edit mode, select a vertex, press `L` to select all linked, and then `P` to separate.
 To join, select two vertices to join and press `F`.
 
-Next step is to transform the curve into something with width and mass. Convert it into a curve using `alt + C`.
+
+### Alt 1
+Next step is to transform the shape into something with width and mass. Convert it into a curve using `alt + C`.
 Add a bevel object, a line going from (-0.5,0.5) in Y. This should add a shape to the curve. Change value of `Twisting` to
 something that looks good. May have to select `Minimum` and manually twist vertices using `Ctrl + T`.
 Select the shape again in object mode and press `alt + C` to convert it back to a mesh, now being more than a thin line.
 
+### Alt
+Go into edit mode. Select all vertices and extrude `E`. Press `Esc`. Can then either scale `S` to 0.8, shrinken `alt+S` to -0.4, or
+scale twice for only `x` and `y`. See what looks best.
+
 Next, we should make it solid. First way is to make it like a cylinder. Select all vertices, extrude `E`, and move the new
-vertices in the `Z` direction to get the proper height.
+vertices in the `Z` direction to get the proper height. Press `S`, `Z`, `0` to scale the vertices to same height to get a flat base.
 
 Other way is to fill in the top. Again extrude, but scale `S` the new vertices into a small point in the middle, and then
 select `merge at center` from the tool menu.
 
 In both cases, it can be nice to select all vertices and recalculate normals.
 
-Then export as stl.
+Then export as stl. Select only current object, and scale * 10
 
 ## Printing
 

@@ -1,11 +1,15 @@
 import Renderer from "./Renderer";
-import {calculateIntersections, debugFigureFunctions, findPoints} from "./ImpossibleCalculator";
-import {svgFuncBinary, svgHalfCircle, svgHeartBottom, svgHeartTop, svgSoftArrow, svgTriangle} from "./svgCalc";
-import {flip, inverse, M, shift, triangle} from "./lineFunctions";
+import {calculateIntersections, debugFigureFunctions, debugFunction, findPoints} from "./ImpossibleCalculator";
+import {
+    svgDiamondInner, svgDiamondInnerCircle,
+    svgDiamondOuter, svgFuncBinary, svgHalfCircle, svgHeartBottom, svgHeartTop, svgSoftArrow,
+    svgTriangle
+} from "./svgCalc";
+import {flip, heartTop, inverse, M, shift, triangle} from "./lineFunctions";
 import {exportToObj} from "./exporter";
 
 const myRenderer = new Renderer(window.innerWidth, window.innerHeight, window.devicePixelRatio);
-document.body.appendChild( myRenderer.renderer.domElement );
+document.body.appendChild(myRenderer.renderer.domElement);
 
 
 let circleSquare = [
@@ -13,8 +17,32 @@ let circleSquare = [
     {func1: inverse(svgFuncBinary(svgHalfCircle)), func2: inverse(svgFuncBinary(svgTriangle))},
 ];
 
+let heart = [
+    {func1: svgFuncBinary(svgHeartTop), func2: svgFuncBinary(svgHeartBottom)},
+    {func1: inverse(svgFuncBinary(svgHeartBottom)), func2: inverse(svgFuncBinary(svgHeartTop))},
+];
 
-const usingDef = circleSquare;
+let intersectingSquare = [ // needs special render
+    {func1: shift(inverse(triangle), -1), func2: shift(inverse(triangle), -1)},
+    {func1: shift(triangle, -1), func2: shift(M, -1)},
+
+    {func1: shift(inverse(triangle), 1), func2: shift(inverse(M), 1)},
+    {func1: shift(triangle, 1), func2: shift(triangle, 1)},
+];
+
+let diamond = [
+    {func1: svgFuncBinary(svgHalfCircle), func2: svgFuncBinary(svgDiamondOuter)},
+    {func1: inverse(svgFuncBinary(svgHalfCircle)), func2: inverse(svgFuncBinary(svgDiamondOuter))},
+
+    {func1: svgFuncBinary(svgDiamondInnerCircle), func2: svgFuncBinary(svgDiamondInner), lo: -0.46, hi: 0.46},
+    {func1: inverse(svgFuncBinary(svgDiamondInnerCircle)), func2: inverse(svgFuncBinary(svgDiamondInner)), lo: -0.46, hi: 0.46}
+];
+
+// let points2 = debugFunction(svgFuncBinary(svgDiamondInner), 100, -0.46, 0.46);
+// console.log(points2);
+// myRenderer.renderPoints(points2);
+
+const usingDef = diamond;
 
 let start = new Date();
 const intersections = calculateIntersections(usingDef);
@@ -23,8 +51,7 @@ console.log("intersections calculation ms", new Date() - start);
 intersections.forEach(points => myRenderer.renderPoints(points));
 exportToObj(myRenderer.renderedLines);
 
-debugFigureFunctions(usingDef).forEach(points => myRenderer.renderPoints(points));
-
+debugFigureFunctions(usingDef).forEach(points => myRenderer.renderPoints(shiftPoints(points, 3, 0, 0)));
 
 
 window.addEventListener('resize', () => {
@@ -33,7 +60,7 @@ window.addEventListener('resize', () => {
 });
 
 const animate = function () {
-    requestAnimationFrame( animate );
+    requestAnimationFrame(animate);
     myRenderer.render();
 };
 

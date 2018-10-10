@@ -7,7 +7,7 @@ const RESOLUTION = 100;
 export function calculateIntersections(pairs) {
 
     return pairs.map(pair => {
-        const lower = pair.low === undefined ? -1 : pair.low;
+        const lower = pair.lo === undefined ? -1 : pair.lo;
         const upper = pair.hi === undefined ? 1 : pair.hi;
 
         const numPoints = (upper - lower) * RESOLUTION;
@@ -38,7 +38,7 @@ export function findPoints(view1, view2, lower, upper, func1, func2, numPoints) 
 
 export function debugFigureFunctions(pairs) {
     return pairs.flatMap(pair => {
-        const lower = pair.low === undefined ? -1 : pair.low;
+        const lower = pair.lo === undefined ? -1 : pair.lo;
         const upper = pair.hi === undefined ? 1 : pair.hi;
 
         return [
@@ -57,7 +57,7 @@ export function debugFunction(fn, numPoints, lower, upper) {
 
         const fnX = fn(xVal);
 
-        points.push({x: xVal + 3, y: 0, z: fnX});
+        points.push({x: xVal, y: 0, z: fnX});
     }
 
     console.log("debug points took", new Date() - start);

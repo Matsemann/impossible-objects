@@ -68,6 +68,11 @@ select `merge at center` from the tool menu.
 
 In both cases, it can be nice to select all vertices and recalculate normals.
 
+
+To make a support it can rotate on, make a cylinder that's 0.5cm diameter and put it through some part of the object. 
+Select the original object, then select `Add modifier` -> `Boolean` and select the cylinder. Select `Difference` to cut
+a cylinder hole.
+
 Then export as stl. Select only current object, and scale * 10
 
 ## Printing

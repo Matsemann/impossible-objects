@@ -1,6 +1,8 @@
 import Renderer from "./Renderer";
 import {calculateIntersections, debugFigureFunctions, debugFunction, findPoints} from "./ImpossibleCalculator";
 import {
+    svgBatmanBottom,
+    svgBatmanTop,
     svgDiamondInner,
     svgDiamondInnerCircle,
     svgDiamondOuter,
@@ -11,7 +13,7 @@ import {
     svgHeartTop,
     svgPointyArrow2,
     svgSoftArrow,
-    svgStar,
+    svgStar, svgSupermanTop,
     svgTriangle
 } from "./svgCalc";
 import {flip, heartTop, inverse, M, shift, triangle} from "./lineFunctions";
@@ -68,11 +70,15 @@ let flowerCircle = [
     {func1: inverse(svgFuncBinary(svgFlower)), func2: inverse(svgFuncBinary(svgHalfCircle))}
 ];
 
+let supermanvsbatman = [
+    {func1: svgFuncBinary(svgBatmanTop), func2: svgFuncBinary(svgTriangle)},
+    {func1: inverse(svgFuncBinary(svgBatmanBottom)), func2: inverse(svgFuncBinary(svgSupermanTop))}
+];
 // let points2 = debugFunction(svgFuncBinary(svgDiamondInner), 100, -0.46, 0.46);
 // console.log(points2);
 // myRenderer.renderPoints(points2);
 
-const usingDef = flowerCircle;
+const usingDef = supermanvsbatman;
 
 let start = new Date();
 const intersections = calculateIntersections(usingDef);

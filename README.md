@@ -64,14 +64,14 @@ Next, we should make it solid. First way is to make it like a cylinder. Select a
 vertices in the `Z` direction to get the proper height. Press `S`, `Z`, `0` to scale the vertices to same height to get a flat base.
 
 Other way is to fill in the top. Again extrude, but scale `S` the new vertices into a small point in the middle, and then
-select `merge at center` from the tool menu.
+select `merge at center` from the tool menu. Or select all vertices and press `F` to generate face, or `Grid Fill`.
 
 In both cases, it can be nice to select all vertices and recalculate normals.
 
 
 To make a support it can rotate on, make a cylinder that's 0.5cm diameter and put it through some part of the object. 
 Select the original object, then select `Add modifier` -> `Boolean` and select the cylinder. Select `Difference` to cut
-a cylinder hole.
+a cylinder hole. If the modifier doesn't work, try to use `Mesh` -> `Clean up` -> `Fill holes`.
 
 Then export as stl. Select only current object, and scale * 10
 

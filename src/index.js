@@ -1,8 +1,17 @@
 import Renderer from "./Renderer";
 import {calculateIntersections, debugFigureFunctions, debugFunction, findPoints} from "./ImpossibleCalculator";
 import {
-    svgDiamondInner, svgDiamondInnerCircle,
-    svgDiamondOuter, svgFuncBinary, svgHalfCircle, svgHeartBottom, svgHeartTop, svgSoftArrow,
+    svgDiamondInner,
+    svgDiamondInnerCircle,
+    svgDiamondOuter,
+    svgFlower,
+    svgFuncBinary,
+    svgHalfCircle,
+    svgHeartBottom,
+    svgHeartTop,
+    svgPointyArrow2,
+    svgSoftArrow,
+    svgStar,
     svgTriangle
 } from "./svgCalc";
 import {flip, heartTop, inverse, M, shift, triangle} from "./lineFunctions";
@@ -38,11 +47,32 @@ let diamond = [
     {func1: inverse(svgFuncBinary(svgDiamondInnerCircle)), func2: inverse(svgFuncBinary(svgDiamondInner)), lo: -0.46, hi: 0.46}
 ];
 
+let arrowFunc = svgSoftArrow;
+let arrow = [
+    {func1: svgFuncBinary(arrowFunc), func2: flip(svgFuncBinary(arrowFunc))},
+    {func1: inverse(svgFuncBinary(arrowFunc)), func2: inverse(flip(svgFuncBinary(arrowFunc)))}
+];
+
+let starFlower = [
+    {func1: svgFuncBinary(svgStar), func2: svgFuncBinary(svgFlower)},
+    {func1: inverse(svgFuncBinary(svgStar)), func2: inverse(svgFuncBinary(svgFlower))}
+];
+
+let starCircle = [
+    {func1: svgFuncBinary(svgStar), func2: svgFuncBinary(svgHalfCircle)},
+    {func1: inverse(svgFuncBinary(svgStar)), func2: inverse(svgFuncBinary(svgHalfCircle))}
+];
+
+let flowerCircle = [
+    {func1: svgFuncBinary(svgFlower), func2: svgFuncBinary(svgHalfCircle)},
+    {func1: inverse(svgFuncBinary(svgFlower)), func2: inverse(svgFuncBinary(svgHalfCircle))}
+];
+
 // let points2 = debugFunction(svgFuncBinary(svgDiamondInner), 100, -0.46, 0.46);
 // console.log(points2);
 // myRenderer.renderPoints(points2);
 
-const usingDef = diamond;
+const usingDef = flowerCircle;
 
 let start = new Date();
 const intersections = calculateIntersections(usingDef);

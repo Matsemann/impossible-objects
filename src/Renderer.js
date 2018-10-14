@@ -36,8 +36,8 @@ export default class Renderer {
         this.controls.update();
 
         const viewAngle = this.controls.getPolarAngle();
-        this.controls.minPolarAngle = viewAngle;
-        this.controls.maxPolarAngle = viewAngle;
+        // this.controls.minPolarAngle = viewAngle;
+        // this.controls.maxPolarAngle = viewAngle;
 
         this.setupLights();
         // this.addCube();

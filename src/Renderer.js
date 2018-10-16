@@ -143,9 +143,12 @@ export default class Renderer {
     }
 
     renderPoints(points) {
+        this.colorCount = this.colorCount === undefined ? 0 : (this.colorCount + 1) % 6;
+                                        // rød,     gul,        cyan    , purple
+        var colors = [0x0000ff, 0x00ff00, 0xff0000, 0xffff00, 0x00ffff, 0xff00ff];
 
         var material = new THREE.LineBasicMaterial( {
-            color: 0x0000ff,
+            color: colors[this.colorCount],
             linewidth: 1
         } );
         var geometry = new THREE.Geometry();

@@ -76,8 +76,34 @@ let supermanvsbatman = [
 ];
 
 let diamond4circles = [
+    // UR
+    // {func1: shift(svgFuncBinary(svgTwistedDiamondBottom), 0.25), func2: svgFuncBinary(svgHalfCircle)},
+    // {func1: inverse(flip(shift(svgFuncBinary(svgTwistedDiamondV), -0.75))), func2: inverse(svgFuncBinary(svgHalfCircle))},
+
+    // UL
+    // {func1: flip(shift(svgFuncBinary(svgTwistedDiamondBottom), 0.25)), func2: svgFuncBinary(svgHalfCircle)},
+    // {func1: flip(inverse(flip(shift(svgFuncBinary(svgTwistedDiamondV), -0.75)))), func2: inverse(svgFuncBinary(svgHalfCircle))},
+
+    // LR
+    // {func1: flip(shift(svgFuncBinary(svgTwistedDiamondV), -0.75)), func2: svgFuncBinary(svgHalfCircle)},
+    // {func1: inverse(shift(svgFuncBinary(svgTwistedDiamondBottom), 0.25)), func2: inverse(svgFuncBinary(svgHalfCircle))},
+
+    // LL
+    {func1: shift(svgFuncBinary(svgTwistedDiamondV), -0.75), func2: svgFuncBinary(svgHalfCircle)},
+    {func1: flip(inverse(shift(svgFuncBinary(svgTwistedDiamondBottom), 0.25))), func2: inverse(svgFuncBinary(svgHalfCircle))},
+];
+
+let diamond4circlesUR = [
     {func1: svgFuncBinary(svgTwistedDiamondBottom), func2: svgFuncBinary(svgHalfCircle)},
     {func1: inverse(flip(shift(svgFuncBinary(svgTwistedDiamondV), -0.5))), func2: inverse(svgFuncBinary(svgHalfCircle))},
+];
+let diamond4circlesUL = [
+    {func1: flip(svgFuncBinary(svgTwistedDiamondBottom)), func2: svgFuncBinary(svgHalfCircle)},
+    {func1: inverse(shift(svgFuncBinary(svgTwistedDiamondV), -0.5)), func2: inverse(svgFuncBinary(svgHalfCircle))},
+];
+let diamond4circlesOtherDirection = [
+    {func1: shift(svgFuncBinary(svgTwistedDiamondV), -1.5), func2: svgFuncBinary(svgHalfCircle)},
+    {func1: flip(inverse(shift(svgFuncBinary(svgTwistedDiamondBottom), 0.5))), func2: inverse(svgFuncBinary(svgHalfCircle))},
 ];
 // let points2 = debugFunction(svgFuncBinary(svgDiamondInner), 100, -0.46, 0.46);
 // console.log(points2);

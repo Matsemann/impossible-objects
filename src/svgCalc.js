@@ -106,3 +106,6 @@ export const svgBatmanBottom = "M0,0c0,0,3.5,13.6,22,17.8c0,0,5.9-13.5,14.3,0.7c
 export const svgBatmanTopOld = "M0,0c0,0-0.7,12.7,28.4,19c0,0,0.2-17.8,14.3-12.1l2,13.8l1.9-5h6.7l1.9,5l2-13.8C71.4,1.2,71.6,19,71.6,19C100.6,12.7,100,0,100,0";
 export const svgBatmanTop = "M0,0c0,0-0.6,23.1,28.5,29.4c0,0,0.2-17.8,14.3-12.1l2,13.8l1.9-5h6.7l1.9,5l2-13.8c14.1-5.8,14.3,12.1,14.3,12.1C100.7,23.1,100,0,100,0";
 export const svgSupermanTop = "M0,0c20,20,20,20,20,20h60l20-20";
+
+export const svgTwistedDiamondV = "M0,0c0,0,0.4,52.7,27.5,97c0,0,25-52.9,72.5-72";
+export const svgTwistedDiamondBottom = "M0,0c0,0,56.2,31,100,25";

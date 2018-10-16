@@ -14,7 +14,7 @@ import {
     svgPointyArrow2,
     svgSoftArrow,
     svgStar, svgSupermanTop,
-    svgTriangle
+    svgTriangle, svgTwistedDiamondBottom, svgTwistedDiamondV
 } from "./svgCalc";
 import {flip, heartTop, inverse, M, shift, triangle} from "./lineFunctions";
 import {exportToObj} from "./exporter";
@@ -74,11 +74,16 @@ let supermanvsbatman = [
     {func1: svgFuncBinary(svgBatmanTop), func2: svgFuncBinary(svgTriangle)},
     {func1: inverse(svgFuncBinary(svgBatmanBottom)), func2: inverse(svgFuncBinary(svgSupermanTop))}
 ];
+
+let diamond4circles = [
+    {func1: svgFuncBinary(svgTwistedDiamondBottom), func2: svgFuncBinary(svgHalfCircle)},
+    {func1: inverse(flip(shift(svgFuncBinary(svgTwistedDiamondV), -0.5))), func2: inverse(svgFuncBinary(svgHalfCircle))},
+];
 // let points2 = debugFunction(svgFuncBinary(svgDiamondInner), 100, -0.46, 0.46);
 // console.log(points2);
 // myRenderer.renderPoints(points2);
 
-const usingDef = supermanvsbatman;
+const usingDef = diamond4circles;
 
 let start = new Date();
 const intersections = calculateIntersections(usingDef);

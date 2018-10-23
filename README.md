@@ -7,6 +7,8 @@ at Teknisk Museum in Oslo, with various figures 3D-printed.
 ![right facing arrow](3dfiles/arrow/arrow_animation.gif) | ![squares](3dfiles/circlesquare/circle_innersquare.gif) | ![diamondcircle](3dfiles/doublecircle_diamond/diamond_circles.gif)
 
 
+[Files on Thingiverse](https://www.thingiverse.com/Matsemann/collections/matsemanns-ambiguous-cylinders)
+
 [**View some of it here**](https://matsemann.github.io/impossible-objects/). Drag with mouse to look around.
 What you see is an object and the mirror reflection being something else. A circle from one direction, square from other.
 

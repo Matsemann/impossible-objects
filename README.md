@@ -4,6 +4,8 @@ Based on the papers by [Kokichi Sugihara](http://www.isc.meiji.ac.jp/~kokichis/W
 the calculations to make various ambiguous cylinders. The end product is an exhibition for [Bekk](https://www.bekk.no/)
 at Teknisk Museum in Oslo, with various figures 3D-printed.
 
+![right facing arrow](3dfiles/arrow/arrow_animation.gif) | ![squares](3dfiles/circlesquare/circle_innersquare.gif) | ![diamondcircle](3dfiles/doublecircle_diamond/diamond_circles.gif)
+
 
 [**View some of it here**](https://matsemann.github.io/impossible-objects/). Drag with mouse to look around.
 What you see is an object and the mirror reflection being something else. A circle from one direction, square from other.

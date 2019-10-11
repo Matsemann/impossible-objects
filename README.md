@@ -4,7 +4,7 @@ Based on the papers by [Kokichi Sugihara](http://www.isc.meiji.ac.jp/~kokichis/W
 the calculations to make various ambiguous cylinders. The end product is an exhibition for [Bekk](https://www.bekk.no/)
 at Teknisk Museum in Oslo, with various figures 3D-printed.
 
-## [Download files on Thingiverse](https://www.thingiverse.com/Matsemann/collections/matsemanns-ambiguous-cylinders)
+## --> [Download files on Thingiverse](https://www.thingiverse.com/Matsemann/collections/matsemanns-ambiguous-cylinders) <--
 
 ![right facing arrow](3dfiles/arrow/arrow_animation.gif) | ![squares](3dfiles/circlesquare/circle_innersquare.gif) | ![diamondcircle](3dfiles/doublecircle_diamond/diamond_circles.gif)
 

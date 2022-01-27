@@ -18,7 +18,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
-    "three": "^0.96.0",
+    "three": "^0.137.0",
     "three-obj-exporter": "0.0.1",
     "three-orbit-controls": "^82.1.0",
     "three-reflector": "^1.0.2"
